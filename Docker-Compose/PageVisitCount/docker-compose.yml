@@ -1,0 +1,11 @@
+version: '2'
+# serices represents containers
+services:
+  # we are starting redis container which is pulling from docker hub
+  redis-server:
+    image: 'redis'
+  # we are starting node-app conatiner , this one is built by us (which is there is docker file)
+  node-app:
+    build: .
+    ports:
+      - "8081:8081"

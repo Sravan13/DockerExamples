@@ -6,6 +6,8 @@ services:
     image: 'redis'
   # we are starting node-app conatiner , this one is built by us (which is there is docker file)
   node-app:
+    # (optional)if container fails automatically restart (there many restart policies check documentation)
+    restart: always
     build: .
     ports:
       - "8081:8081"

@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+
+  myapp:
+    build: .
+    container_name: myapp
+    ports:
+      - "8181:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://sbchmysql:3306/employee_db?useSSL=true&autoReconnect=true
+    restart: always
+    depends_on:
+      - sbchmysql
+
+  sbchmysql:
+    image: mysql:5.7
+    container_name: sbchmysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+ #     - MYSQL_USER=root
+ #     - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=employee_db
+    ports:
+      - "3308:3306"

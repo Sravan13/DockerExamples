@@ -25,5 +25,8 @@ mvn clean package verify docker:push
 #start docker compose in background
 docker-compose up -d
 
+
+#docker run -p 3000:3000  -v /app/node_modules -v $(pwd):/app -it frontendfordocker
+
 #stop docker-compose
 docker-compose down
